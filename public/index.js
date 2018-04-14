@@ -1,4 +1,4 @@
-// loads on window load, calls makePrimaryRequest with root url and callback
+// calls on window load, calls makePrimaryRequest with root url and callback
 var app = function(){
   let url = 'https://swapi.co/api/';
   makePrimaryRequest(url, requestPrimaryComplete);
@@ -61,13 +61,11 @@ const populateCategoryList = function (list) {
 // assigns the name of each 'specific' in the list and gives it an id
 const populateSpecificList = function (list) {
   const select = document.getElementById('specific-list');
-    while (select.firstChild) {
-    select.removeChild(select.firstChild);
-    }
+  select.innerHTML = '';
   let idCount = 0;
   for (let specific of list) {
     const option = document.createElement("option");
-    option.innerText = specific.name;
+    option.innerText = specific.name || specific.title;
     option.value = idCount;
     select.appendChild(option);
     idCount += 1;
@@ -82,7 +80,7 @@ const getCategory = function (list) {
   const selectedCategory = document.querySelector('#category-list')
   selectedCategory.addEventListener('change', function() {
     let category = list[this.value];
-    saveCategory(category)
+    saveCategory(category);
     console.log(category);
 
     let url = category;
@@ -96,7 +94,7 @@ const getSpecific = function (list) {
   const selectedSpecific = document.querySelector('#specific-list')
   selectedSpecific.addEventListener('change', function() {
     let specific = list[this.value];
-    saveSpecific(specific)
+    saveSpecific(specific);
     console.log(specific);
   })
 }
