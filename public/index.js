@@ -62,6 +62,11 @@ const populateCategoryList = function (list) {
 const populateSpecificList = function (list) {
   const select = document.getElementById('specific-list');
   select.innerHTML = '';
+  const option = document.createElement("option");
+  option.innerText = "Choose a Specific";
+  option.disabled = true;
+  option.selected = true;
+  select.appendChild(option);
   let idCount = 0;
   for (let specific of list) {
     const option = document.createElement("option");
@@ -72,6 +77,31 @@ const populateSpecificList = function (list) {
   }
 }
 
+// it...capitalises words
+function capitalize_Words(str) {
+ return str.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
+}
+
+const populateInfo = function (choice) {
+  const box = document.getElementById('info');
+  box.innerHTML = '';
+  const img = document.createElement("IMG");
+  img.src = '/images/' + choice.name + '.jpg';
+  img.height = 400;
+  img.width = 400;
+  box.appendChild(img);
+  let classCount = 0;
+  for (let key of Object.keys(choice)) {
+    if (key !== "url" && key !== "created" && key !== "edited") {
+      const p = document.createElement("p");
+      let property = capitalize_Words(key.replace("_", " "));
+      p.innerText = property + ":  " + choice[key];
+      p.addClass = "p" + classCount;
+      classCount += 1;
+      box.appendChild(p);
+    }
+  }
+}
 
 // assigns the chosen option in the dropdown to variable,
 // calls saveCategory with new variable passed in,
@@ -97,6 +127,7 @@ const getSpecific = function (list) {
     let specific = list[this.value];
     saveSpecific(specific);
     console.log(specific);
+    populateInfo(specific);
   })
 }
 

@@ -16,11 +16,36 @@ body {
   color: rgb(244, 194, 66);
 }
 
-.info {
+#info {
   width: 1400px;
   height: 575px;
   margin-left: 10px;
   margin-top: 20px;
   border: 2px solid rgb(244, 194, 66);
   overflow-x: scroll;
+  border-radius: 20px;
+}
+
+p {
+  font-size: 28px;
+  color: rgb(244, 194, 66);
+  margin-left: 20px;
+}
+
+.p1, .p2 {
+  float: left;
+}
+
+img {
+  float: left;
+  margin: 25px 20px 20px 15px;
+}
+
+select {
+  font-family: 'helvetica';
+  font-size: 16px;
+  margin-left: 30px;
+  height: 30px;
+  width: 200px;
+  background-color: rgb(249, 243, 212);
 }
