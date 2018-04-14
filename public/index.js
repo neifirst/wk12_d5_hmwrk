@@ -77,7 +77,7 @@ const populateSpecificList = function (list) {
   }
 }
 
-// it...capitalises words
+// it...capitalises words :)
 function capitalize_Words(str) {
  return str.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
 }
@@ -86,7 +86,7 @@ const populateInfo = function (choice) {
   const box = document.getElementById('info');
   box.innerHTML = '';
   const img = document.createElement("IMG");
-  img.src = '/images/' + choice.name + '.jpg';
+  img.src = '/images/' + (choice.name || choice.title) + '.jpg';
   img.height = 400;
   img.width = 400;
   box.appendChild(img);
