@@ -1,0 +1,26 @@
+@font-face {
+font-family: jedi;
+src: url(/Starjedi.ttf);
+}
+
+body {
+  background: url('/images/deathstar.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+.main-head {
+  font-size: 60px;
+  font-family: 'jedi';
+  margin-left: 40px;
+  color: rgb(244, 194, 66);
+}
+
+.info {
+  width: 1400px;
+  height: 575px;
+  margin-left: 10px;
+  margin-top: 20px;
+  border: 2px solid rgb(244, 194, 66);
+  overflow-x: scroll;
+}

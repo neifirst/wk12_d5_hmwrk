@@ -72,6 +72,7 @@ const populateSpecificList = function (list) {
   }
 }
 
+
 // assigns the chosen option in the dropdown to variable,
 // calls saveCategory with new variable passed in,
 // sets url for secondary request to category,
